@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: guard-perspective
+    runtime: static
+    buildCommand: python3 build.py
+    staticPublishPath: ./public
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
